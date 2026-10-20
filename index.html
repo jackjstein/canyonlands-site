@@ -6,10 +6,10 @@
   <title>Canyonlands — Americana soft rock from Nashville</title>
   <meta name="description" content="Canyonlands is an Americana soft-rock duo from Nashville: Jack Stein and Melissa Findley. Watch, listen, find shows, and book the band.">
 
-  <!-- FONTS: Archivo (wide, sturdy headings, like park signage) + Literata (warm serif for reading) -->
+  <!-- FONTS: Josefin Sans (vintage national-park poster headlines) + Lora (warm serif for reading) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
   <style>
     /* ============================================================
@@ -32,17 +32,19 @@
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
     body {
-      font-family: "Literata", Georgia, serif;
+      font-family: "Lora", Georgia, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       color: var(--varnish);
       background: var(--bone);
     }
 
-    h1, h2, h3, .nav a, .btn, .show-date {
-      font-family: "Archivo", "Arial Narrow", sans-serif;
-      font-stretch: 125%;
-      line-height: 1.05;
+    /* Headlines, menu, buttons: Josefin Sans (national-park poster feel) */
+    h1, h2, h3, .show-date, .nav .logo, .nav ul a, .btn, button.btn {
+      font-family: "Josefin Sans", "Futura", sans-serif;
+      font-weight: 700;
+      letter-spacing: .04em;
+      line-height: 1.1;
     }
 
     a { color: inherit; }
@@ -61,47 +63,56 @@
       display: flex; align-items: center; justify-content: space-between;
       padding-top: 22px; padding-bottom: 22px; gap: 16px;
     }
-    .nav .logo { font-weight: 800; font-size: 1.05rem; text-decoration: none; letter-spacing: .02em; }
+    .nav .logo { font-weight: 700; font-size: 1.15rem; text-decoration: none; letter-spacing: .06em; }
     .nav ul { list-style: none; display: flex; gap: 26px; }
     .nav ul a { text-decoration: none; font-weight: 600; font-size: .95rem; opacity: .85; }
     .nav ul a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 6px; }
 
-    /* ---------- HERO: layered canyon at dusk ---------- */
+    /* ---------- HERO: band photo with a dark fade for readable text ---------- */
     .hero {
       position: relative;
       min-height: 100svh;
-      background: linear-gradient(180deg, #1E2233 0%, #3B3550 38%, #8A4B3C 70%, #D08A55 100%);
+      background: var(--varnish);
       color: var(--bone);
       overflow: hidden;
       display: flex; align-items: flex-end;
     }
-    .hero svg.canyon {
-      position: absolute; left: 0; right: 0; bottom: 0;
-      width: 100%; height: 58%;
+    .hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: 50% 30%;   /* keeps both faces in frame */
+      filter: sepia(.35) contrast(1.05);   /* warm, old-print tone */
     }
-    .hero .stars { position: absolute; inset: 0; height: 55%; }
+    .hero::after {               /* darkens top (menu) and bottom (headline) */
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg,
+        rgba(46,36,32,.60) 0%, rgba(46,36,32,0) 22%,
+        rgba(46,36,32,0) 38%, rgba(46,36,32,.6) 62%, rgba(46,36,32,.92) 100%);
+    }
+    .hero h1, .hero p { text-shadow: 0 2px 18px rgba(0,0,0,.35); }
     .hero-text {
       position: relative; z-index: 2;
       padding-bottom: 14vh; padding-top: 140px;
+      text-align: center;
     }
     .hero h1 {
-      font-size: clamp(3.2rem, 13vw, 10rem);
-      font-weight: 900;
-      letter-spacing: -.01em;
-      line-height: .9;
+      /* sized so the wide letters always fit the screen, phone to desktop */
+      font-size: clamp(2rem, 8vw, 6rem);
+      line-height: 1;
     }
     .hero p {
-      font-size: clamp(1.1rem, 2.4vw, 1.4rem);
       font-style: italic;
-      margin-top: 18px;
+      font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+      margin: 18px auto 0;
       max-width: 34ch;
     }
-    .hero .actions { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero .actions { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 
     .btn {
       display: inline-block; text-decoration: none;
-      font-weight: 700; font-size: .95rem;
-      padding: 14px 24px; border-radius: 3px;
+      font-weight: 600; font-size: .9rem;
+      padding: 15px 24px 13px; border-radius: 3px;
       background: var(--slickrock); color: var(--bone);
       border: 2px solid var(--slickrock);
     }
@@ -120,7 +131,8 @@
     section { padding: 96px 0; }
     section h2 {
       font-size: clamp(2.2rem, 6vw, 3.6rem);
-      font-weight: 850;
+      font-weight: 700;
+      letter-spacing: .02em;
       margin-bottom: 28px;
     }
     .lede { max-width: 60ch; }
@@ -137,7 +149,7 @@
       opacity: .8;
     }
     .platforms { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-    button.btn { cursor: pointer; font-family: "Archivo", sans-serif; font-stretch: 125%; line-height: 1.05; }
+    button.btn { cursor: pointer; }
     .soon-note {
       margin-top: 18px; font-style: italic; color: var(--navajo);
       min-height: 1.7em;
@@ -152,7 +164,7 @@
       padding: 20px 0;
       border-bottom: 1px solid rgba(46,36,32,.25);
     }
-    .show-date { font-weight: 800; font-size: 1.1rem; }
+    .show-date { font-weight: 600; font-size: 1.2rem; letter-spacing: .04em; }
     .show-where strong { display: block; }
     .show-where span { opacity: .75; font-size: 1rem; }
     .empty { padding: 28px 0; font-style: italic; }
@@ -173,8 +185,8 @@
     /* Booking */
     .booking { background: var(--juniper); color: var(--bone); }
     .booking a.email {
-      font-family: "Archivo", sans-serif; font-stretch: 125%;
-      font-size: clamp(1.3rem, 4vw, 2.2rem); font-weight: 800;
+      font-family: "Josefin Sans", sans-serif;
+      font-size: clamp(1.2rem, 4vw, 2rem); font-weight: 600;
       text-decoration-thickness: 2px; text-underline-offset: 8px;
       word-break: break-word;
     }
@@ -186,6 +198,11 @@
 
     /* ---------- PHONES ---------- */
     @media (max-width: 720px) {
+      .hero { display: block; min-height: 0; background: var(--varnish); }
+      .hero-bg { position: static; height: auto; aspect-ratio: 3 / 2; }
+      .hero::after { display: none; }
+      .hero-text { padding-top: 32px; padding-bottom: 56px; }
+      .nav { background: linear-gradient(180deg, rgba(46,36,32,.7), rgba(46,36,32,0)); }
       .nav ul { display: none; }            /* single page: buttons + scrolling do the work */
       section { padding: 72px 0; }
       .show { grid-template-columns: 1fr; gap: 6px; }
@@ -214,27 +231,16 @@
   <!-- ======================= HERO ======================= -->
   <main id="top">
     <div class="hero">
-      <!-- a few stars in the dusk sky -->
-      <svg class="stars" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true">
-        <g fill="#EDE4D6">
-          <circle cx="80" cy="60" r="1.4" opacity=".7"/><circle cx="210" cy="140" r="1" opacity=".5"/>
-          <circle cx="340" cy="40" r="1.6" opacity=".8"/><circle cx="470" cy="110" r="1" opacity=".5"/>
-          <circle cx="600" cy="30" r="1.2" opacity=".6"/><circle cx="720" cy="150" r="1.5" opacity=".7"/>
-          <circle cx="850" cy="70" r="1" opacity=".5"/><circle cx="940" cy="190" r="1.3" opacity=".6"/>
-          <circle cx="150" cy="230" r="1" opacity=".4"/><circle cx="560" cy="210" r="1" opacity=".4"/>
-        </g>
-      </svg>
-
-      <!-- layered mesas and buttes, back to front -->
-      <svg class="canyon" viewBox="0 0 1440 520" preserveAspectRatio="none" aria-hidden="true">
-        <path fill="#6B3B36" opacity=".55" d="M0 230 L120 230 L140 200 L330 200 L345 225 L520 225 L540 170 L600 170 L612 140 L640 140 L652 170 L700 170 L720 215 L980 215 L1000 185 L1180 185 L1195 220 L1440 220 L1440 520 L0 520Z"/>
-        <path fill="#7A3A27" d="M0 300 L210 300 L230 265 L420 265 L440 300 L760 300 L775 250 L815 250 L822 205 L846 205 L852 250 L890 250 L905 300 L1120 300 L1140 270 L1300 270 L1318 305 L1440 305 L1440 520 L0 520Z"/>
-        <path fill="#4A2A26" d="M0 380 L90 380 L110 350 L300 350 L330 395 L620 395 L640 360 L900 360 L930 400 L1210 400 L1225 372 L1440 372 L1440 520 L0 520Z"/>
-        <path fill="#2E2420" d="M0 455 C 240 435, 460 470, 720 450 S 1200 430, 1440 455 L1440 520 L0 520Z"/>
-      </svg>
+      <!-- BAND PHOTO: to change it, replace the files in the images folder -->
+      <img class="hero-bg"
+           src="images/band-1200.jpg"
+           srcset="images/band-1200.jpg 1200w, images/band-2000.jpg 2000w"
+           sizes="100vw"
+           alt="Jack Stein and Melissa Findley of Canyonlands, sitting back to back"
+           fetchpriority="high">
 
       <div class="wrap hero-text">
-        <h1>Canyonlands</h1>
+        <h1>Canyonlands Music</h1>
         <!-- TAGLINE: replace with your own line -->
         <p>Made for the miles.</p>
         <div class="actions">
