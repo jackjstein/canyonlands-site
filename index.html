@@ -6,10 +6,10 @@
   <title>Canyonlands — Americana soft rock from Nashville</title>
   <meta name="description" content="Canyonlands is an Americana soft-rock duo from Nashville: Jack Stein and Melissa Findley. Watch, listen, find shows, and book the band.">
 
-  <!-- FONTS: Josefin Sans (vintage national-park poster headlines) + Lora (warm serif for reading) -->
+  <!-- FONTS: Young Serif (headlines) + Josefin Sans (menu, buttons, contact links) + Lora (warm serif for reading) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Josefin+Sans:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
   <style>
     /* ============================================================
@@ -39,8 +39,15 @@
       background: var(--bone);
     }
 
-    /* Headlines, menu, buttons: Josefin Sans (national-park poster feel) */
-    h1, h2, h3, .show-date, .nav .logo, .nav ul a, .btn, button.btn {
+    /* Headlines: Young Serif (it has one weight, so it's never bolded) */
+    h1, h2, h3, .show-date, .nav .logo {
+      font-family: "Young Serif", Georgia, serif;
+      font-weight: 400 !important;
+      letter-spacing: .01em;
+      line-height: 1.1;
+    }
+    /* Menu and buttons: Josefin Sans */
+    .nav ul a, .btn, button.btn {
       font-family: "Josefin Sans", "Futura", sans-serif;
       font-weight: 700;
       letter-spacing: .04em;
