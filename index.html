@@ -174,11 +174,11 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
     }
     .photo {
+      width: 100%; height: auto;
       aspect-ratio: 4 / 5;
-      background: linear-gradient(160deg, var(--juniper), var(--dusk-2));
+      object-fit: cover;
       border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--bone); font-style: italic; text-align: center; padding: 20px;
+      background: var(--dusk-2);
     }
     .about-grid p + p { margin-top: 1em; }
 
@@ -207,7 +207,6 @@
       section { padding: 72px 0; }
       .show { grid-template-columns: 1fr; gap: 6px; }
       .about-grid { grid-template-columns: 1fr; gap: 32px; }
-      .photo { aspect-ratio: 4 / 3; }
     }
   </style>
 </head>
@@ -297,8 +296,9 @@
     <!-- ======================= ABOUT ======================= -->
     <section id="about">
       <div class="wrap about-grid">
-        <!-- PHOTO: replace this div with <img src="images/band.jpg" alt="Jack Stein and Melissa Findley of Canyonlands"> -->
-        <div class="photo">Band photo goes here</div>
+        <!-- ABOUT PHOTO: to change it, upload a new live-duo.jpg -->
+        <img class="photo" src="live-duo.jpg" loading="lazy" width="780" height="962"
+             alt="Jack Stein on electric guitar and Melissa Findley singing on stage with Canyonlands">
         <div>
           <h2>About</h2>
           <!-- BIO -->
