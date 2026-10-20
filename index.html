@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Canyonlands — Americana soft rock from Nashville</title>
+  <meta name="description" content="Canyonlands is an Americana soft-rock duo from Nashville: Jack Stein and Melissa Findley. Watch, listen, find shows, and book the band.">
+
+  <!-- FONTS: Archivo (wide, sturdy headings, like park signage) + Literata (warm serif for reading) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       COLORS — change these few lines to re-color the whole site.
+       Named after the desert: slickrock, juniper, dusk sky, etc.
+       ============================================================ */
+    :root {
+      --dusk:      #1E2233;  /* deep blue-hour sky — dark sections */
+      --dusk-2:    #2B2F45;
+      --slickrock: #B4542D;  /* red sandstone — buttons, accents */
+      --navajo:    #E2B27E;  /* pale sandstone — highlights */
+      --juniper:   #6E7B62;  /* sage/juniper green */
+      --bone:      #EDE4D6;  /* bleached bone — light sections */
+      --varnish:   #2E2420;  /* desert-varnish brown — body text */
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      font-family: "Literata", Georgia, serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: var(--varnish);
+      background: var(--bone);
+    }
+
+    h1, h2, h3, .nav a, .btn, .show-date {
+      font-family: "Archivo", "Arial Narrow", sans-serif;
+      font-stretch: 125%;
+      line-height: 1.05;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    :focus-visible { outline: 3px solid var(--navajo); outline-offset: 3px; }
+
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* ---------- NAVIGATION ---------- */
+    .nav {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 5;
+      color: var(--bone);
+    }
+    .nav .wrap {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 22px; padding-bottom: 22px; gap: 16px;
+    }
+    .nav .logo { font-weight: 800; font-size: 1.05rem; text-decoration: none; letter-spacing: .02em; }
+    .nav ul { list-style: none; display: flex; gap: 26px; }
+    .nav ul a { text-decoration: none; font-weight: 600; font-size: .95rem; opacity: .85; }
+    .nav ul a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 6px; }
+
+    /* ---------- HERO: layered canyon at dusk ---------- */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      background: linear-gradient(180deg, #1E2233 0%, #3B3550 38%, #8A4B3C 70%, #D08A55 100%);
+      color: var(--bone);
+      overflow: hidden;
+      display: flex; align-items: flex-end;
+    }
+    .hero svg.canyon {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      width: 100%; height: 58%;
+    }
+    .hero .stars { position: absolute; inset: 0; height: 55%; }
+    .hero-text {
+      position: relative; z-index: 2;
+      padding-bottom: 14vh; padding-top: 140px;
+    }
+    .hero h1 {
+      font-size: clamp(3.2rem, 13vw, 10rem);
+      font-weight: 900;
+      letter-spacing: -.01em;
+      line-height: .9;
+    }
+    .hero p {
+      font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+      font-style: italic;
+      margin-top: 18px;
+      max-width: 34ch;
+    }
+    .hero .actions { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block; text-decoration: none;
+      font-weight: 700; font-size: .95rem;
+      padding: 14px 24px; border-radius: 3px;
+      background: var(--slickrock); color: var(--bone);
+      border: 2px solid var(--slickrock);
+    }
+    .btn:hover { background: #9A4524; border-color: #9A4524; }
+    .btn.ghost { background: transparent; border-color: var(--bone); }
+    .btn.ghost:hover { background: rgba(237,228,214,.12); }
+
+    /* ---------- STRATA DIVIDER (rock layers between sections) ---------- */
+    .strata { height: 18px; display: grid; grid-template-rows: 6px 4px 3px 5px; }
+    .strata span:nth-child(1) { background: var(--slickrock); }
+    .strata span:nth-child(2) { background: var(--navajo); }
+    .strata span:nth-child(3) { background: var(--juniper); }
+    .strata span:nth-child(4) { background: var(--varnish); }
+
+    /* ---------- SECTIONS ---------- */
+    section { padding: 96px 0; }
+    section h2 {
+      font-size: clamp(2.2rem, 6vw, 3.6rem);
+      font-weight: 850;
+      margin-bottom: 28px;
+    }
+    .lede { max-width: 60ch; }
+    .dark { background: var(--dusk); color: var(--bone); }
+
+    /* Listen */
+    .embed {
+      margin-top: 32px;
+      border: 2px dashed rgba(237,228,214,.35);
+      border-radius: 4px;
+      padding: 48px 24px;
+      text-align: center;
+      font-style: italic;
+      opacity: .8;
+    }
+    .platforms { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    button.btn { cursor: pointer; font-family: "Archivo", sans-serif; font-stretch: 125%; line-height: 1.05; }
+    .soon-note {
+      margin-top: 18px; font-style: italic; color: var(--navajo);
+      min-height: 1.7em;
+    }
+
+    /* Shows */
+    .shows { list-style: none; border-top: 2px solid var(--varnish); }
+    .show {
+      display: grid;
+      grid-template-columns: 9rem 1fr auto;
+      gap: 20px; align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(46,36,32,.25);
+    }
+    .show-date { font-weight: 800; font-size: 1.1rem; }
+    .show-where strong { display: block; }
+    .show-where span { opacity: .75; font-size: 1rem; }
+    .empty { padding: 28px 0; font-style: italic; }
+
+    /* About */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+    }
+    .photo {
+      aspect-ratio: 4 / 5;
+      background: linear-gradient(160deg, var(--juniper), var(--dusk-2));
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--bone); font-style: italic; text-align: center; padding: 20px;
+    }
+    .about-grid p + p { margin-top: 1em; }
+
+    /* Booking */
+    .booking { background: var(--juniper); color: var(--bone); }
+    .booking a.email {
+      font-family: "Archivo", sans-serif; font-stretch: 125%;
+      font-size: clamp(1.3rem, 4vw, 2.2rem); font-weight: 800;
+      text-decoration-thickness: 2px; text-underline-offset: 8px;
+      word-break: break-word;
+    }
+
+    /* Footer */
+    footer { background: var(--varnish); color: var(--bone); padding: 40px 0; font-size: .95rem; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    footer ul { list-style: none; display: flex; gap: 20px; flex-wrap: wrap; }
+
+    /* ---------- PHONES ---------- */
+    @media (max-width: 720px) {
+      .nav ul { display: none; }            /* single page: buttons + scrolling do the work */
+      section { padding: 72px 0; }
+      .show { grid-template-columns: 1fr; gap: 6px; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .photo { aspect-ratio: 4 / 3; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================= NAV ======================= -->
+  <header class="nav">
+    <div class="wrap">
+      <a class="logo" href="#top">CANYONLANDS</a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#listen">Listen</a></li>
+          <li><a href="#shows">Shows</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#booking">Booking</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================= HERO ======================= -->
+  <main id="top">
+    <div class="hero">
+      <!-- a few stars in the dusk sky -->
+      <svg class="stars" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true">
+        <g fill="#EDE4D6">
+          <circle cx="80" cy="60" r="1.4" opacity=".7"/><circle cx="210" cy="140" r="1" opacity=".5"/>
+          <circle cx="340" cy="40" r="1.6" opacity=".8"/><circle cx="470" cy="110" r="1" opacity=".5"/>
+          <circle cx="600" cy="30" r="1.2" opacity=".6"/><circle cx="720" cy="150" r="1.5" opacity=".7"/>
+          <circle cx="850" cy="70" r="1" opacity=".5"/><circle cx="940" cy="190" r="1.3" opacity=".6"/>
+          <circle cx="150" cy="230" r="1" opacity=".4"/><circle cx="560" cy="210" r="1" opacity=".4"/>
+        </g>
+      </svg>
+
+      <!-- layered mesas and buttes, back to front -->
+      <svg class="canyon" viewBox="0 0 1440 520" preserveAspectRatio="none" aria-hidden="true">
+        <path fill="#6B3B36" opacity=".55" d="M0 230 L120 230 L140 200 L330 200 L345 225 L520 225 L540 170 L600 170 L612 140 L640 140 L652 170 L700 170 L720 215 L980 215 L1000 185 L1180 185 L1195 220 L1440 220 L1440 520 L0 520Z"/>
+        <path fill="#7A3A27" d="M0 300 L210 300 L230 265 L420 265 L440 300 L760 300 L775 250 L815 250 L822 205 L846 205 L852 250 L890 250 L905 300 L1120 300 L1140 270 L1300 270 L1318 305 L1440 305 L1440 520 L0 520Z"/>
+        <path fill="#4A2A26" d="M0 380 L90 380 L110 350 L300 350 L330 395 L620 395 L640 360 L900 360 L930 400 L1210 400 L1225 372 L1440 372 L1440 520 L0 520Z"/>
+        <path fill="#2E2420" d="M0 455 C 240 435, 460 470, 720 450 S 1200 430, 1440 455 L1440 520 L0 520Z"/>
+      </svg>
+
+      <div class="wrap hero-text">
+        <h1>Canyonlands</h1>
+        <!-- TAGLINE: replace with your own line -->
+        <p>Made for the miles.</p>
+        <div class="actions">
+          <a class="btn" href="#listen">Listen now</a>
+          <a class="btn ghost" href="#shows">See shows</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="strata" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+    <!-- ======================= LISTEN ======================= -->
+    <section id="listen" class="dark">
+      <div class="wrap">
+        <h2>Listen</h2>
+        <p class="lede">Original music from real people. We set out to make music that we enjoy, and we hope you do too.</p>
+
+        <!-- MUSIC EMBED: replace this box with your Spotify / Bandcamp / YouTube embed code -->
+        <div class="embed">Music player goes here (Spotify, Bandcamp, or YouTube embed).</div>
+
+        <!-- STREAMING LINKS
+             Spotify and Apple Music are placeholders until the EP is out.
+             When it's released, swap each <button ...>...</button> for a real link, e.g.
+             <a class="btn ghost" href="https://open.spotify.com/artist/..." target="_blank" rel="noopener">Spotify</a> -->
+        <div class="platforms">
+          <a class="btn ghost" href="https://www.youtube.com/@CanyonlandsMusic" target="_blank" rel="noopener">Watch on YouTube</a>
+          <button type="button" class="btn ghost coming-soon">Spotify</button>
+          <button type="button" class="btn ghost coming-soon">Apple Music</button>
+        </div>
+        <p class="soon-note" id="soon-note" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ======================= SHOWS ======================= -->
+    <section id="shows">
+      <div class="wrap">
+        <h2>Shows</h2>
+        <ul class="shows">
+          <!--
+            TO ADD A SHOW: copy this block, remove the comment marks around it, and fill it in.
+            <li class="show">
+              <span class="show-date">Nov 14</span>
+              <span class="show-where"><strong>Venue Name</strong><span>City, State</span></span>
+              <a class="btn" href="https://link-to-tickets">Tickets</a>
+            </li>
+          -->
+          <li class="empty">New dates are on the way. Check back soon, or reach out below to book us.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="strata" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+    <!-- ======================= ABOUT ======================= -->
+    <section id="about">
+      <div class="wrap about-grid">
+        <!-- PHOTO: replace this div with <img src="images/band.jpg" alt="Jack Stein and Melissa Findley of Canyonlands"> -->
+        <div class="photo">Band photo goes here</div>
+        <div>
+          <h2>About</h2>
+          <!-- BIO -->
+          <p>Although Canyonlands hails from Nashville, their sound is anything but pop country. Influenced by artists such as John Denver, Train, John Mayer, and the Rolling Stones, Canyonlands brings it all together for the perfect blend of Americana soft rock.</p>
+          <p>Jack Stein (guitar, BGVs) and Melissa Findley (lead vocals) collaborate to create what makes Canyonlands’ music so special: beautiful melodies with haunting harmonies, accompanied by creative acoustic guitar leads that will leave listeners wanting more.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= BOOKING ======================= -->
+    <section id="booking" class="booking">
+      <div class="wrap">
+        <h2>Booking</h2>
+        <p class="lede">For shows, private events, and press, get in touch.</p>
+        <p style="margin-top:20px">
+          <!-- EMAIL: replace with your real address -->
+          <a class="email" href="mailto:booking@canyonlandsmusic.com">booking@canyonlandsmusic.com</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Canyonlands</span>
+      <!-- SOCIAL: add Instagram, Facebook, etc. here as new <li> lines -->
+      <ul>
+        <li><a href="https://www.youtube.com/@CanyonlandsMusic" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="mailto:booking@canyonlandsmusic.com">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // keeps the copyright year current automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Spotify / Apple Music placeholders: show the EP message when clicked
+    document.querySelectorAll(".coming-soon").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        document.getElementById("soon-note").textContent =
+          "Stay tuned for our debut EP, Winter 2027.";
+      });
+    });
+  </script>
+</body>
+</html>
