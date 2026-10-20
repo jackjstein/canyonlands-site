@@ -145,16 +145,19 @@
     .lede { max-width: 60ch; }
     .dark { background: var(--dusk); color: var(--bone); }
 
-    /* Listen */
-    .embed {
+    /* Listen: music player */
+    .player {
       margin-top: 32px;
-      border: 2px dashed rgba(237,228,214,.35);
-      border-radius: 4px;
-      padding: 48px 24px;
-      text-align: center;
-      font-style: italic;
-      opacity: .8;
+      padding: 22px 24px;
+      border: 1px solid rgba(237,228,214,.25);
+      border-radius: 6px;
+      background: rgba(237,228,214,.06);
+      max-width: 640px;
     }
+    .player-info { display: flex; flex-direction: column; margin-bottom: 14px; }
+    .player-title { font-family: "Young Serif", Georgia, serif; font-size: 1.35rem; line-height: 1.2; }
+    .player-artist { opacity: .75; font-size: 1rem; }
+    .player audio { width: 100%; display: block; }
     .platforms { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
     button.btn { cursor: pointer; }
     .soon-note {
@@ -274,8 +277,22 @@
         <h2>Listen</h2>
         <p class="lede">Original music from real people. We set out to make music that we enjoy, and we hope you do too.</p>
 
-        <!-- MUSIC EMBED: replace this box with your Spotify / Bandcamp / YouTube embed code -->
-        <div class="embed">Music player goes here (Spotify, Bandcamp, or YouTube embed).</div>
+        <!-- MUSIC PLAYER
+             Plays the song file from the top level of the repo (see the file names below).
+             To change the song: upload a new MP3 and update the file name and title here. -->
+        <div class="player">
+          <div class="player-info">
+            <span class="player-title">I&rsquo;ll Take the Risk</span>
+            <span class="player-artist">Canyonlands</span>
+          </div>
+          <!-- The browser tries each file name below in order and plays the first one it finds. -->
+          <audio controls preload="metadata">
+            <source src="ill-take-the-risk.m4a" type="audio/mp4">
+            <source src="I%27ll%20Take%20The%20Risk_RMIX_072426-1.m4a" type="audio/mp4">
+            <source src="I%E2%80%99ll%20Take%20The%20Risk_RMIX_072426-1.m4a" type="audio/mp4">
+            Your browser doesn't support audio playback.
+          </audio>
+        </div>
 
         <!-- STREAMING LINKS
              Spotify and Apple Music are placeholders until the EP is out.
