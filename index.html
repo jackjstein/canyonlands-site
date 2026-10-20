@@ -192,7 +192,11 @@
     }
 
     .booking .follow { margin-top: 28px; }
-    .booking .follow a { font-weight: 600; text-underline-offset: 5px; }
+    .booking .follow a {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-weight: 600; text-underline-offset: 5px;
+    }
+    .booking .follow img { border-radius: 50%; }   /* round crop hides the icon's square corners */
 
     /* Footer */
     footer { background: var(--varnish); color: var(--bone); padding: 40px 0; font-size: .95rem; }
@@ -245,7 +249,7 @@
       <div class="wrap hero-text">
         <h1>Canyonlands Music</h1>
         <!-- TAGLINE: replace with your own line -->
-        <p>Made for the miles.</p>
+        <p>Original music from Jack and Melissa.</p>
         <div class="actions">
           <a class="btn" href="#listen">Listen now</a>
           <a class="btn ghost" href="#shows">See shows</a>
@@ -321,7 +325,12 @@
           <!-- EMAIL: replace with your real address -->
           <a class="email" href="mailto:booking@canyonlandsmusic.com">booking@canyonlandsmusic.com</a>
         </p>
-        <p class="follow">Follow along on Instagram: <a href="https://www.instagram.com/canyonlandsmusic/" target="_blank" rel="noopener">@canyonlandsmusic</a></p>
+        <p class="follow">
+          <a href="https://www.instagram.com/canyonlandsmusic/" target="_blank" rel="noopener">
+            <img src="instagram-icon.jpg" alt="Instagram" width="40" height="40">
+            <span>@canyonlandsmusic</span>
+          </a>
+        </p>
       </div>
     </section>
   </main>
