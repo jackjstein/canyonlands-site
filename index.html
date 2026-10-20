@@ -186,15 +186,19 @@
     .booking { background: var(--juniper); color: var(--bone); }
     .booking a.email {
       font-family: "Josefin Sans", sans-serif;
-      font-size: clamp(1.2rem, 4vw, 2rem); font-weight: 600;
+      font-size: clamp(1rem, 4.2vw, 2rem); font-weight: 600;
       text-decoration-thickness: 2px; text-underline-offset: 8px;
       word-break: break-word;
     }
 
-    .booking .follow { margin-top: 28px; }
+    .booking a.email { display: inline-flex; align-items: center; gap: 14px; }
+    .icon-mail { flex: none; }
+    .booking .follow { margin-top: 22px; }
     .booking .follow a {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-weight: 600; text-underline-offset: 5px;
+      display: inline-flex; align-items: center; gap: 14px;
+      font-family: "Josefin Sans", sans-serif;
+      font-size: clamp(1rem, 4.2vw, 2rem); font-weight: 600;
+      text-decoration-thickness: 2px; text-underline-offset: 8px;
     }
     .booking .follow img { border-radius: 50%; }   /* round crop hides the icon's square corners */
 
@@ -249,7 +253,7 @@
       <div class="wrap hero-text">
         <h1>Canyonlands Music</h1>
         <!-- TAGLINE: replace with your own line -->
-        <p>Original music from Jack and Melissa.</p>
+        <p>Original music from Jack and Melissa</p>
         <div class="actions">
           <a class="btn" href="#listen">Listen now</a>
           <a class="btn ghost" href="#shows">See shows</a>
@@ -323,11 +327,18 @@
         <p class="lede">For shows, private events, and press, get in touch.</p>
         <p style="margin-top:20px">
           <!-- EMAIL: replace with your real address -->
-          <a class="email" href="mailto:booking@canyonlandsmusic.com">booking@canyonlandsmusic.com</a>
+          <a class="email" href="mailto:booking@canyonlandsmusic.com">
+            <svg class="icon-mail" aria-hidden="true" viewBox="0 0 48 34" width="48" height="34">
+              <rect x="0" y="0" width="48" height="34" rx="3" fill="#111"/>
+              <path d="M3 4 L24 20 L45 4" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round"/>
+              <path d="M3 31 L17.5 16.5 M45 31 L30.5 16.5" fill="none" stroke="#fff" stroke-width="2.6"/>
+            </svg>
+            <span>booking@canyonlandsmusic.com</span>
+          </a>
         </p>
         <p class="follow">
           <a href="https://www.instagram.com/canyonlandsmusic/" target="_blank" rel="noopener">
-            <img src="instagram-icon.jpg" alt="Instagram" width="40" height="40">
+            <img src="instagram-icon.jpg" alt="Instagram" width="48" height="48">
             <span>@canyonlandsmusic</span>
           </a>
         </p>
