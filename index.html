@@ -181,9 +181,7 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
     }
     .photo {
-      width: 100%; height: auto;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
+      width: 100%; height: auto;   /* shows the whole photo, uncropped */
       border-radius: 4px;
       background: var(--dusk-2);
     }
@@ -316,7 +314,7 @@
     <section id="about">
       <div class="wrap about-grid">
         <!-- ABOUT PHOTO: to change it, upload a new live-duo.jpg -->
-        <img class="photo" src="live-duo.jpg" loading="lazy" width="780" height="962"
+        <img class="photo" src="live-duo.jpg" loading="lazy" width="1200" height="1175"
              alt="Jack Stein on electric guitar and Melissa Findley singing on stage with Canyonlands">
         <div>
           <h2>About</h2>
